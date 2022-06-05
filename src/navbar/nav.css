@@ -1,0 +1,51 @@
+.navbar {
+    color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    font-size: 36px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 120px;
+}
+
+.logo > p:first-of-type {
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.nav-items {                                            
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-item {
+    width: 140px;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.active-nav-item::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 0.25rem;
+    margin-left: -40px;
+    margin-top: -7px;
+    background-color: black;
+    border-radius: 100000px;
+    opacity: 0.95;
+}
