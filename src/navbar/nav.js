@@ -1,26 +1,61 @@
 import React, { Component } from 'react';
+import {
+  Link
+} from "react-router-dom";
 import './nav.css';
 
 class Nav extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.aboutLink = React.createRef();  
+    this.worksLink = React.createRef();  
+    this.blogLink = React.createRef();  
+  }
+
+  state = {
+    currentLocation: '/',
+    activeLinkPositionX: 0,
+  }
+  
+
   render() {
+
+    setTimeout(() => {
+      this.setState({currentLocation: window.location.pathname})
+      let activeLinkPositionX = this.state.currentLocation === '/' ? (this.aboutLink.current.getBoundingClientRect().left + this.aboutLink.current.getBoundingClientRect().right)/2:
+      this.state.currentLocation === '/works' ? (this.worksLink.current.getBoundingClientRect().left + this.worksLink.current.getBoundingClientRect().right)/2 :
+      (this.blogLink.current.getBoundingClientRect().left + this.blogLink.current.getBoundingClientRect().right)/2
+      this.setState({activeLinkPositionX: activeLinkPositionX})
+    }, 5);
+
+    const setCurrentLocation = () => {
+      this.setState({currentLocation: window.location.pathname})
+      let activeLinkPositionX = this.state.currentLocation === '/' ? this.aboutLink.current.getBoundingClientRect().left :
+      this.state.currentLocation === '/works' ? this.worksLink.current.getBoundingClientRect().left :
+      this.blogLink.current.getBoundingClientRect().left
+      this.setState({activeLinkPositionX: activeLinkPositionX})
+    }
+
     return (
-      <div className="navbar">
-          <div className='logo'>
-              <p>Vamsi</p>
-              <p>Gottipati</p>
-          </div>
-          <div className='nav-items'>
-            <div className='nav-item active-nav-item'>
-                <p>About</p>
+        <div className="navbar">
+            <div className='logo'>
+                <p>Vamsi</p>
+                <p>Gottipati</p>
             </div>
-            <div className='nav-item'>
-                <p>Works</p>
+            <div className='nav-items'>
+              <div className='active-link' style={{left: this.state.activeLinkPositionX - 30}}></div>
+              <div onClick={() => setCurrentLocation()} ref={this.aboutLink} className='nav-item'>
+                  <Link className='link' to="/">About</Link>
+              </div>
+              <div onClick={() => setCurrentLocation()} ref={this.worksLink} className='nav-item'>
+                  <Link className='link' to="/works">Works</Link>
+              </div>
+              <div onClick={() => setCurrentLocation()} ref={this.blogLink} className='nav-item'>
+                  <Link className='link' to="/blog">Blog</Link>
+              </div>
             </div>
-            <div className='nav-item'>
-                <p>Blog</p>
-            </div>
-          </div>
-      </div>
+        </div>
     );
   }
 }

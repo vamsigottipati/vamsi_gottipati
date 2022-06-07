@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import Nav from './navbar/nav'
+
 import About from './about/about'
+import Works from './works/works'
+import Blog from './blog/blog'
+
 import './App.css';
 import {
-  BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
@@ -18,12 +21,11 @@ class App extends Component {
         </div>
         <Nav></Nav>
         <div style={{height: '30px', widht: 'auto', background: 'transparent'}}></div>
-        <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<About />}>
-          </Route>
+        <Routes> 
+          <Route path="/" element={<About />} />
+          <Route path="/works" element={<Works />} />
+          <Route path="/blog" element={<Blog />} />
         </Routes>
-        </BrowserRouter>
       </div>
     );
   }
