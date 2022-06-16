@@ -23,7 +23,6 @@ class Nav extends Component {
   componentDidMount = () => {
     this.activeNavLink.current.style.opacity = 0
   }
-  
 
   render() {
 
