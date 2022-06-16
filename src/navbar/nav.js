@@ -11,11 +11,17 @@ class Nav extends Component {
     this.aboutLink = React.createRef();  
     this.worksLink = React.createRef();  
     this.blogLink = React.createRef();  
+    this.activeNavLink = React.createRef();
   }
 
   state = {
     currentLocation: '/',
     activeLinkPositionX: 0,
+    activeNavDisplay: 'none'
+  }
+
+  componentDidMount = () => {
+    this.activeNavLink.current.style.opacity = 0
   }
   
 
@@ -27,6 +33,9 @@ class Nav extends Component {
       this.state.currentLocation === '/works' ? (this.worksLink.current.getBoundingClientRect().left + this.worksLink.current.getBoundingClientRect().right)/2 :
       (this.blogLink.current.getBoundingClientRect().left + this.blogLink.current.getBoundingClientRect().right)/2
       this.setState({activeLinkPositionX: activeLinkPositionX})
+      setTimeout(() => {
+        this.activeNavLink.current.style.opacity = 1
+      }, 350);
     }, 5);
 
     const setCurrentLocation = () => {
@@ -35,6 +44,7 @@ class Nav extends Component {
       this.state.currentLocation === '/works' ? this.worksLink.current.getBoundingClientRect().left :
       this.blogLink.current.getBoundingClientRect().left
       this.setState({activeLinkPositionX: activeLinkPositionX})
+      this.activeNavLink.current.style.opacity = 1
     }
 
     return (
@@ -44,7 +54,7 @@ class Nav extends Component {
                 <p>Gottipati</p>
             </div>
             <div className='nav-items'>
-              <div className='active-link' style={{left: this.state.activeLinkPositionX - 30}}></div>
+              <div ref={this.activeNavLink} className='active-link' style={{left: this.state.activeLinkPositionX - 30}}></div>
               <div onClick={() => setCurrentLocation()} ref={this.aboutLink} className='nav-item'>
                   <Link className='link' to="/">About</Link>
               </div>
