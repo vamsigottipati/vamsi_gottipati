@@ -20,7 +20,7 @@ class App extends Component {
           <div className='bg-yellow'></div>
         </div>
         <Nav></Nav>
-        <div style={{height: '30px', widht: 'auto', background: 'transparent'}}></div>
+        <div style={{height: '30px', width: 'auto', background: 'transparent'}}></div>
         <Routes> 
           <Route path="/" element={<About />} />
           <Route path="/works" element={<Works />} />

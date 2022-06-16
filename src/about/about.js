@@ -26,7 +26,20 @@ class About extends Component {
             </div>
           </div>
           <div className='profile-content'>
-
+            <div style={{marginTop: 'auto', textAlign: 'center'}}>
+              <p>Developer</p>
+              <p>Designer</p>
+              <p>Freelancer</p>
+            </div>
+            <div className='cta-btns'>
+              <button className='btn btn-black btn-flex'>
+                <p>Projects</p>
+                <img className='btn-img' src={require('../assets/arrow.svg')} alt="" />
+              </button>
+              <button className='btn btn-gray btn-second-cta'>
+                Know More
+              </button>
+            </div>
           </div>
           <div className='hire-me shadow-drop-center-light'>
               <p>Hire <br /> me</p>
