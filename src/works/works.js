@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import './works.css';
+import ComingSoon from '../coming-soon/coming-soon';
 
 class Works extends Component {
   render() {
     return (
-      <div className="about">
-          <p>Works</p>
-      </div>
+      <ComingSoon />
     );
   }
 }

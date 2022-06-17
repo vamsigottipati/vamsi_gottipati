@@ -46,6 +46,17 @@ body {
   height: auto;
 }
 
+.coming-soon {
+  font-size: 5rem;
+  width: 90vw;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 0px;
+}
+
 
 @-webkit-keyframes shadow-drop-center {
   0% {

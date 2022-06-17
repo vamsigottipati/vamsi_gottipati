@@ -11,7 +11,12 @@ import {
   Route,
 } from "react-router-dom";
 
+import { createBrowserHistory } from "history";
+
 class App extends Component {
+
+  history = createBrowserHistory();
+  
   render() {
     return (
       <div className="home">

@@ -32,9 +32,9 @@ class About extends Component {
               <p>Freelancer</p>
             </div>
             <div className='cta-btns'>
-              <button className='btn btn-black btn-flex'>
+              <button className='btn btn-black btn-flex ctaAnimation'>
                 <p>Projects</p>
-                <img className='btn-img' src={require('../assets/arrow.svg')} alt="" />
+                <img className='btn-img ctaAnimationImg' src={require('../assets/arrow.svg')} alt="" />
               </button>
               <button className='btn btn-gray btn-second-cta'>
                 Know More
